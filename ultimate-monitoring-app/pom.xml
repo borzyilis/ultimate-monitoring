@@ -46,13 +46,15 @@
 		<!-- Micormeter core dependecy  -->
 		<dependency>
 			<groupId>io.micrometer</groupId>
-			<artifactId>micrometer-core</artifactId>
+			<artifactId>micrometer-registry-prometheus</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 		<!-- Micrometer Prometheus registry  -->
 		<dependency>
 			<groupId>io.micrometer</groupId>
 			<artifactId>micrometer-registry-prometheus</artifactId>
 		</dependency>
+
 	</dependencies>
 
 	<build>
