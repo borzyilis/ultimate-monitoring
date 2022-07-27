@@ -1,4 +1,4 @@
-package ch.juliusbaer.ultimatemonitoringapp;
+package ch.juliusbaer.ultimatemonitoringapp.Services;
 
 import ch.juliusbaer.ultimatemonitoringapp.Models.Coffee;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -13,7 +13,7 @@ public class CoffeeService {
         this.restTemplate = restTemplateBuilder.build();
     }
 
-    public Coffee[] getCoffeesAsJSON(){
+    public Coffee[] getCoffees(){
         return this.restTemplate.getForObject(URL, Coffee[].class);
     }
 }

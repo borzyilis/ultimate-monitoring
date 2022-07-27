@@ -1,5 +1,7 @@
-package ch.juliusbaer.ultimatemonitoringapp;
+package ch.juliusbaer.ultimatemonitoringapp.Controllers;
 
+import ch.juliusbaer.ultimatemonitoringapp.Services.AddressService;
+import ch.juliusbaer.ultimatemonitoringapp.Services.CoffeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,8 +15,8 @@ public class CoffeeController {
     private CoffeeService coffeeService;
 
     @GetMapping("/coffees")
-    public ResponseEntity<?> fetchAllCoffees() {
-        return ResponseEntity.status(HttpStatus.OK).body(coffeeService.getCoffeesAsJSON());
+    public ResponseEntity<?> fetchCoffees() {
+        return ResponseEntity.status(HttpStatus.OK).body(coffeeService.getCoffees());
     }
 
 }
