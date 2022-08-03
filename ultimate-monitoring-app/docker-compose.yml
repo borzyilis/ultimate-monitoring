@@ -10,3 +10,6 @@ services:
     image: grafana/grafana
     ports:
       - "3000:3000"
+    volumes:
+      - ./src/main/resources/grafana/datasources:/etc/grafana/provisioning/datasources/
+      - ./src/main/resources/grafana/dashboards:/etc/grafana/provisioning/dashboards/
