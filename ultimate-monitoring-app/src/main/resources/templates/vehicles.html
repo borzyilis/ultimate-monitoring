@@ -23,26 +23,31 @@
         </ul>
     </div>
 </nav>
-<div th:if="${not #lists.isEmpty(coffees)}" class="container">
+</div>
+<div th:if="${not #lists.isEmpty(vehicles)}" class="container">
     <table class="table">
         <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Blend Name</th>
-            <th scope="col">Origin</th>
-            <th scope="col">Variety</th>
-            <th scope="col">Notes</th>
-            <th scope="col">Intensifier</th>
+            <th scope="col">Make And Model</th>
+            <th scope="col">Transmission</th>
+            <th scope="col">Drive Type</th>
+            <th scope="col">Car Options</th>
+            <th scope="col">Kilometrage</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="coffee : ${coffees} ">
-            <th th:text="${coffee.id}"></th>
-            <td th:text="${coffee.blend_name}"></td>
-            <td th:text="${coffee.origin}"></td>
-            <td th:text="${coffee.variety}"></td>
-            <td th:text="${coffee.notes}"></td>
-            <td th:text="${coffee.intensifier}"></td>
+        <tr th:each="vehicle : ${vehicles} ">
+            <th th:text="${vehicle.id}"></th>
+            <td th:text="${vehicle.make_and_model}"></td>
+            <td th:text="${vehicle.transmission}"></td>
+            <td th:text="${vehicle.drive_type}"></td>
+            <div th:each="car_option : ${vehicle.car_options}">
+                <td th:text="${car_option}"></td>
+            </div>
+            <td th:text="${allVehicleOptions}"></td>
+
+            <td th:text="${vehicle.kilometrage}"></td>
         </tr>
 
         </tbody>

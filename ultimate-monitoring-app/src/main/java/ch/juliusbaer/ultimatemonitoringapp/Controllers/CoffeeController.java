@@ -19,8 +19,8 @@ public class CoffeeController {
 
     public CoffeeController(CollectorRegistry collectorRegistry){
         requestCount = Counter.build()
-                .name("request_counter_boom")
-                .help("Total requests")
+                .name("request_coffee_counter")
+                .help("Total requests to coffee")
                 .register(collectorRegistry);
     }
 
