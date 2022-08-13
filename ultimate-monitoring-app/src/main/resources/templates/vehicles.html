@@ -37,17 +37,15 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="vehicle : ${vehicles} ">
-            <th th:text="${vehicle.id}"></th>
-            <td th:text="${vehicle.make_and_model}"></td>
-            <td th:text="${vehicle.transmission}"></td>
-            <td th:text="${vehicle.drive_type}"></td>
-            <div th:each="car_option : ${vehicle.car_options}">
-                <td th:text="${car_option}"></td>
-            </div>
-            <td th:text="${allVehicleOptions}"></td>
-
-            <td th:text="${vehicle.kilometrage}"></td>
+        <tr th:each="vehicle : ${vehicles} " >
+            <th th:text="${vehicle.id}" class="align-middle"></th>
+            <td th:text="${vehicle.make_and_model}" class="align-middle"></td>
+            <td th:text="${vehicle.transmission}" class="align-middle"></td>
+            <td th:text="${vehicle.drive_type}" class="align-middle"></td>
+            <td th:each="car_option : ${vehicle.car_options}" class="d-flex flex-column aligns-items-center justify-content-center">
+                <span th:text="${car_option}"></span>
+            </td>
+            <td th:text="${vehicle.kilometrage}" class="align-middle"></td>
         </tr>
 
         </tbody>
