@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class CoffeeController {
 
     private final Counter requestCount;
-    private final Summary requestLatency;
+    // private final Summary requestLatency;
 
     private final Histogram myHistogram;
 
@@ -23,14 +23,17 @@ public class CoffeeController {
                 .name("request_coffee_counter")
                 .help("Total requests to coffee")
                 .register(collectorRegistry);
+        /*
         requestLatency = Summary.build()
                 .name("requests_coffee_latency_seconds")
                 .help("request latency in seconds")
                 .register(collectorRegistry);
+
+         */
         myHistogram = Histogram.build()
-                .name("API_REQUEST_LATENCY_MILLIS")
-                .help("REQUEST_LATENCY_IN_MILLISECONDS")
-                .buckets(0.5D, 1D, 2D, 4D, 8D, 12D)
+                .name("requests_coffee_latency_seconds")
+                .help("Request latency in seconds")
+                .buckets(0.1D, 0.25D,0.5D)
                 .register(collectorRegistry);
     }
 
