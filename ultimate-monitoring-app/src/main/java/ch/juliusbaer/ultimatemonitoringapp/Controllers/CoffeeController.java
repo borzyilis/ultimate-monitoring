@@ -1,10 +1,17 @@
 package ch.juliusbaer.ultimatemonitoringapp.Controllers;
 
+import ch.juliusbaer.ultimatemonitoringapp.Models.Address;
+import ch.juliusbaer.ultimatemonitoringapp.Models.Coffee;
 import ch.juliusbaer.ultimatemonitoringapp.Services.CoffeeService;
 import io.prometheus.client.CollectorRegistry;
 import io.prometheus.client.Counter;
 import io.prometheus.client.Histogram;
 import io.prometheus.client.Summary;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,6 +47,11 @@ public class CoffeeController {
     @Autowired
     private CoffeeService coffeeService;
 
+    @Operation(summary = "Returns a list of coffees")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Coffees found",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = Coffee.class))})})
     @GetMapping("/coffees")
     public String fetchCoffees(Model model) {
         Histogram.Timer myTimer = myHistogram.startTimer();

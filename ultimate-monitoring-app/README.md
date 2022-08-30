@@ -8,6 +8,8 @@
 
 ## Available End-Points
 
+* http://localhost:8080/swagger-ui/index.html#/ - HTTP End-Point Documentation
+
 * http://host.docker.internal:9090 - Prometheus Server
 * http://host.docker.internal:3000 - Pre-Configured Grafana Server
 

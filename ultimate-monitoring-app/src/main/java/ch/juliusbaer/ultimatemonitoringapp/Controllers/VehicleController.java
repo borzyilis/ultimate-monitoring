@@ -1,10 +1,16 @@
 package ch.juliusbaer.ultimatemonitoringapp.Controllers;
 
+import ch.juliusbaer.ultimatemonitoringapp.Models.Address;
 import ch.juliusbaer.ultimatemonitoringapp.Models.Vehicle;
 import ch.juliusbaer.ultimatemonitoringapp.Services.AddressService;
 import ch.juliusbaer.ultimatemonitoringapp.Services.VehicleService;
 import io.prometheus.client.CollectorRegistry;
 import io.prometheus.client.Counter;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,6 +38,11 @@ public class VehicleController {
     @Autowired
     private VehicleService vehicleService;
 
+    @Operation(summary = "Returns a list of vehicles")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Vehicles found",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = Vehicle.class))})})
     @GetMapping("/vehicles")
     public String fetchVehicles(Model model) {
         model.addAttribute("vehicles", vehicleService.getVehicles());
