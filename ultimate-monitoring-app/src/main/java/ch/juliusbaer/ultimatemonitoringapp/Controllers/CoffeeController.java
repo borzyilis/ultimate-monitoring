@@ -33,7 +33,7 @@ public class CoffeeController {
         myHistogram = Histogram.build()
                 .name("requests_coffee_latency_seconds")
                 .help("Request latency in seconds")
-                .buckets(0.1D, 0.25D,0.5D)
+                .buckets(0.1D, 0.25D,0.5D, 1D, 2D, 4D, 8D, 16D)
                 .register(collectorRegistry);
     }
 
