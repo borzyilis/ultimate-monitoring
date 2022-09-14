@@ -63,8 +63,6 @@ public class CoffeeController {
         finally {
             myTimer.observeDuration();
         }
-
-
     }
 
 }

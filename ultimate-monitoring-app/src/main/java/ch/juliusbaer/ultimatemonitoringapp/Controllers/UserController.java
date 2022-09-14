@@ -26,6 +26,5 @@ public class UserController {
         User user = userService.createUser(userInfo);
         return "redirect:/users/";
     }
-
      */
 }
